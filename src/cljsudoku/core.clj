@@ -6,6 +6,6 @@
   (println x "Hello, World!"))
 
 (require '[clojure.java.io :as jio])
-(with-open [rdr (jio/reader "resources/puzzles/puzzles1.txt")]
+(with-open [rdr (jio/reader "resources/puzzles/puzzle1.txt")]
   (doseq [line (line-seq rdr)]
     (println line)))

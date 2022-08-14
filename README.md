@@ -1,10 +1,12 @@
 # cljsudoku
 
-A Clojure library designed to ... well, that part is up to you.
+A Clojure library designed to implement Sudoku algorithm.
 
 ## Usage
 
-FIXME
+```markdown
+lein repl
+```
 
 ## License
 

@@ -26,7 +26,7 @@
     "9" 9
     nil))
 
-(defn str-to-vec
+(defn- str-to-vec
   "Converts a string to a vector of number."
   [s]
   (mapv (fn [x] (parse-int x)) (str/split s #"")))
@@ -40,7 +40,7 @@
 
 (def V [1 2 4 8 16 32 64 128 256 511])
 
-(defn dec-to-bin-str
+(defn- dec-to-bin-str
   "Returns binary form of an integer, i.e. 2 -> 10."
   [dec]
   (Integer/toString dec 2))
@@ -51,9 +51,9 @@
   (str/replace (format "%9s" (dec-to-bin-str dec)) #" " "0"))
 
 (def V-BIN
-  (mapv #(dec-to-9bin-str %) V))
+  (mapv dec-to-9bin-str V))
 
-(defn count-1-of-value
+(defn- count-1-of-value
   "Calculates how many 1s are in a positive binary integer.
   See https://www.cnblogs.com/grenet/archive/2011/06/10/2077228.html"
   [value]

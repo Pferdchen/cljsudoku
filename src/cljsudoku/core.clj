@@ -26,7 +26,7 @@
     "9" 9
     nil))
 
-(defn str-to-vec
+(defn- str-to-vec
   "Converts a string to a vector of number."
   [s]
   (mapv (fn [x] (parse-int x)) (str/split s #"")))
@@ -56,7 +56,7 @@
              :when (integer? ci)]
          ci)))
 
-(defn start-end
+(defn- start-end
   [index]
   (let [start (* (quot index 3) 3)
         end (+ start 3)]
@@ -96,7 +96,7 @@
    (with-open [rdr (jio/reader path)]
      (str-to-vec (apply str (line-seq rdr))))))
 
-(defn find-index
+(defn- find-index
   "Returns an index of vector from a puzzle position."
   [i j]
   (+ (* i 9) j))

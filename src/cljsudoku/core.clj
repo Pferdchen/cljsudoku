@@ -31,7 +31,7 @@
         col (mod index 9)]
     [row col]))
 
-(defn- get-1s-count
+(defn count1s-of
   "Gets the count of 1s. Example: (1, 1)=011000000, it meas the cell contains 2
   possible numbers, 7 and 8, get1Count(011000000)=2.
   See https://www.cnblogs.com/grenet/archive/2011/06/10/2077228.html"
@@ -41,7 +41,7 @@
       c
       (recur (bit-and value (- value 1)) (inc c)))))
 
-;;(println (get-1s-count 511))
+;;(println (count1s-of 511))
 
 (defn- get-possible-num-in-cell
   [cell-num index-of-possibilities]

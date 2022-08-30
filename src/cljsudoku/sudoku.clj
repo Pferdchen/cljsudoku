@@ -26,7 +26,7 @@
     "9" 9
     nil))
 
-(defn- str-to-vec
+(defn- str->vec
   "Converts a string to a vector of number."
   [s]
   (mapv (fn [x] (parse-int x)) (str/split s #"")))
@@ -36,22 +36,22 @@
   ([] (puzzle "resources/puzzles/puzzle1.txt"))
   ([path]
    (with-open [rdr (jio/reader path)]
-     (str-to-vec (apply str (line-seq rdr))))))
+     (str->vec (apply str (line-seq rdr))))))
 
 (def V [1 2 4 8 16 32 64 128 256 511])
 
-(defn- dec-to-bin-str
+(defn- dec->bin-str
   "Returns binary form of an integer, i.e. 2 -> 10."
   [dec]
   (Integer/toString dec 2))
 
-(defn dec-to-9bin-str
+(defn dec->9bin-str
   "Returns 9-bit binary form of an integer, i.e. 2 -> 000000010."
   [dec]
-  (str/replace (format "%9s" (dec-to-bin-str dec)) #" " "0"))
+  (str/replace (format "%9s" (dec->bin-str dec)) #" " "0"))
 
 (def V-BIN
-  (mapv dec-to-9bin-str V))
+  (mapv dec->9bin-str V))
 
 (defn- count-1-of-value
   "Calculates how many 1s are in a positive binary integer.
